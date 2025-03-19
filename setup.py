@@ -21,8 +21,8 @@ setup(
         'requests>=2.20.0',  # Automatically installs requests if not present
     ],
     entry_points={
-        'console_scripts': [
-            'ghostmap=ghostmap:main',
+        "console_scripts": [
+            "ghostmap=ghostmap.main:main",
         ],
     },
     classifiers=[
