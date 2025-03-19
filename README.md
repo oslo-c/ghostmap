@@ -17,17 +17,17 @@ GhostMap is an OSINT command-line tool designed to help penetration testers and 
   - `requests`
 
 ## Installation
-
 1. **Clone the Repository:**
 
    ```bash
    git clone https://github.com/yourusername/ghostmap.git
    cd ghostmap
-
-2. **Install the Package using pip:**
+   
+2. **Install the Package**
+   From the project directory, run:
 
    ```bash
-   pip install ghostmap
+   pip install .
    ```
 
 ## Usage
