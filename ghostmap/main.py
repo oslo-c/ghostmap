@@ -90,6 +90,11 @@ def query_shodan(ip, shodan_key):
         return None
 
 def run_scan(args):
+    # If neither flag is provided, default to running both scans.
+    if not args.crt and not args.shodan:
+        args.crt = True
+        args.shodan = True
+
     results = {"domain": args.domain}
 
     # Perform crt.sh subdomain enumeration if requested
@@ -108,7 +113,7 @@ def run_scan(args):
             config = load_config()
             shodan_key = config.get("shodan_key")
         if not shodan_key:
-            logging.error("Shodan API key is required. Please run 'init' command or provide --shodan-key.")
+            logging.error("Shodan API key is required. Please run the 'init' command or provide --shodan-key.")
             sys.exit(1)
 
     # If Shodan flag is set, query each resolved IP
@@ -150,7 +155,7 @@ def main():
 
     # 'scan' sub-command: run crt.sh and/or Shodan queries
     parser_scan = subparsers.add_parser("scan", help="Run OSINT scans using crt.sh and Shodan.")
-    parser_scan.add_argument("--domain", "-d", required=True, help="Target domain (e.g. example.com)")
+    parser_scan.add_argument("domain", help="Target domain (e.g. example.com)")
     parser_scan.add_argument("--crt", action="store_true", help="Query crt.sh for subdomains")
     parser_scan.add_argument("--shodan", action="store_true", help="Query Shodan for each resolved IP")
     parser_scan.add_argument("--shodan-key", help="Optional: override stored Shodan API key")

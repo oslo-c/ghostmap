@@ -15,7 +15,7 @@ setup(
     long_description_content_type='text/markdown',
     author='oslo-c4',
     author_email='oslo-c4@proton.me',
-    py_modules=['ghostmap'],  # Assumes your main script is ghostmap.py
+    py_modules=['ghostmap'], 
     python_requires='>=3.6',
     install_requires=[
         'requests>=2.20.0',  # Automatically installs requests if not present
