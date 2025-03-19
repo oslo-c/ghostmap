@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # Read the contents of README.md for a long description (if available)
 long_description = ""
@@ -15,7 +15,7 @@ setup(
     long_description_content_type='text/markdown',
     author='oslo-c4',
     author_email='oslo-c4@proton.me',
-    py_modules=['ghostmap'], 
+    packages=find_packages(),  # This will find the ghostmap package directory
     python_requires='>=3.6',
     install_requires=[
         'requests>=2.20.0',  # Automatically installs requests if not present
